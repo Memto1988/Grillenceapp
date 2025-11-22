@@ -1,0 +1,94 @@
+/* styles.css */
+body { font-family: 'Inter', sans-serif; background-color: #f7f9fc; }
+
+/* Chart Container */
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    max-height: 400px;
+}
+@media (min-width: 768px) {
+    .chart-container { height: 400px; }
+}
+
+/* Navigation & Cards */
+.nav-item { @apply px-4 py-2 rounded-xl text-gray-600 hover:text-teal-600 transition duration-150 flex items-center space-x-2; }
+.nav-active { @apply bg-teal-50 text-teal-700 font-semibold shadow-inner; }
+.kpi-card { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05); border: 1px solid #e5e7eb; }
+.card { @apply bg-white p-6 rounded-xl shadow-md transition duration-200 hover:shadow-lg; }
+
+/* --- NEW: Modern Modal Backdrop with Blur --- */
+.modal {
+    background-color: rgba(0, 0, 0, 0.4); /* More transparent to show blur */
+    backdrop-filter: blur(5px); /* The Blur Effect */
+    transition: opacity 0.3s ease;
+}
+
+/* Inputs & Tables */
+input[type="text"], input[type="number"], input[type="email"], input[type="password"], input[type="date"], select {
+    @apply p-3 border border-gray-200 rounded-lg focus:ring-teal-500 focus:border-teal-500 transition duration-150;
+}
+.data-table th { @apply px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider; }
+.data-table td { @apply px-6 py-4 whitespace-nowrap text-sm; }
+.data-table tbody tr { @apply border-b border-gray-100 hover:bg-teal-50 transition duration-100; }
+
+/* Admin & Roles */
+.admin-view { visibility: hidden; width: 0; padding: 0; margin: 0; overflow: hidden; }
+.admin-full-access .admin-view { visibility: visible; width: auto; padding: 0 1rem; margin: 0; overflow: visible; }
+.role-tag { @apply px-2 py-1 rounded-full font-bold text-xs shadow-sm; }
+.tag-admin { @apply bg-red-700 text-white; }
+.tag-manager { @apply bg-blue-100 text-blue-700; }
+.tag-employee { @apply bg-gray-300 text-gray-800; }
+
+/* Login Styles */
+.login-main { min-height: 100vh; display: flex; align-items: center; justify-content: center; background-color: #f0f4f0; }
+.login-card { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); width: 100%; max-width: 400px; }
+.login-button { background-color: #89c985; color: #1f2937; font-weight: 600; }
+.login-button:hover { background-color: #79b975; }
+
+/* Reports */
+.report-section-header { @apply px-4 py-2 bg-gray-100 font-bold text-gray-700 text-sm uppercase; }
+.report-total-row { @apply bg-teal-50 font-extrabold text-teal-800 border-t-2 border-teal-500; }
+.report-net-row { @apply bg-indigo-100 font-extrabold text-indigo-800 border-t-4 border-indigo-500; }
+
+/* --- NEW: Toast Notifications --- */
+.toast-message {
+    pointer-events: auto;
+    animation: slideIn 0.3s ease-out forwards;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+.toast-success { @apply bg-white border-l-4 border-green-500 text-gray-800; }
+.toast-error { @apply bg-white border-l-4 border-red-500 text-gray-800; }
+
+@keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeOut {
+    to { transform: translateX(100%); opacity: 0; }
+}
+
+/* --- NEW: Button Loading State --- */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+    opacity: 0.8;
+}
+.btn-loading::after {
+    content: "";
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 1.2em; height: 1.2em;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    transform: translate(-50%, -50%);
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }

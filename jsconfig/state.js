@@ -1,0 +1,21 @@
+export const state = {
+    userId: null,
+    storeId: 'STORE-001',
+    userRole: 'employee',
+    isAuthReady: false,
+    isDatabaseReady: false,
+    REF_DATA: { products: [], employees: [], suppliers: [], assets: [], expensesLog: [] },
+    SALES_LOG: [],
+    INVENTORY_LOG: [],
+    PAYROLL_LOG: [],
+    LEAVE_REQUESTS: [],
+    HR_DOCS: [],
+    PURCHASE_ORDERS: [],
+    SUPPLIER_INVOICES: [],
+    GENERAL_LEDGER: [],
+    USER_ROLES_LIST: [],
+    CURRENCY_SYMBOL: 'ج.م.',
+    charts: {},
+    currentView: 'dashboard',
+    currentReport: 'income'
+};
